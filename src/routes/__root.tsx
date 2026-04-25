@@ -35,7 +35,7 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
       },
       {
         name: 'description',
-        content: 'Discover, publish, and operate reusable agent capabilities from a route-driven interface.',
+        content: 'Discover, publish, and operate reusable agent capabilities from a route-driven workspace.',
       },
     ],
     links: [

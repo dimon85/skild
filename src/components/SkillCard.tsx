@@ -69,7 +69,7 @@ const SkillCard = ({
           </div>
           <button
             type="button"
-            className="copy hover:text-foreground cursor-pointer"
+            className="copy cursor-pointer"
             onClick={handleCopy}
             aria-label="Copy install command"
           >

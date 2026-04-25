@@ -1,60 +1,57 @@
+import { ClerkProvider } from "@clerk/tanstack-react-start";
+import { TanStackDevtools } from "@tanstack/react-devtools";
+import type { QueryClient } from "@tanstack/react-query";
 import {
+  createRootRouteWithContext,
   HeadContent,
   Scripts,
-  createRootRouteWithContext,
-} from '@tanstack/react-router'
-import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
-import { TanStackDevtools } from '@tanstack/react-devtools'
-
-import ClerkProvider from '../integrations/clerk/provider'
-
-import TanStackQueryDevtools from '../integrations/tanstack-query/devtools'
-
-import appCss from '../styles.css?url'
-
-import type { QueryClient } from '@tanstack/react-query'
-import Navbar from '#/components/Navbar'
-import Crosshair from '#/components/Crosshair'
+} from "@tanstack/react-router";
+import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
+import Crosshair from "#/components/Crosshair";
+import Navbar from "#/components/Navbar";
+import TanStackQueryDevtools from "../integrations/tanstack-query/devtools";
+import appCss from "../styles.css?url";
 
 interface MyRouterContext {
-  queryClient: QueryClient
+  queryClient: QueryClient;
 }
 
 export const Route = createRootRouteWithContext<MyRouterContext>()({
   head: () => ({
     meta: [
       {
-        charSet: 'utf-8',
+        charSet: "utf-8",
       },
       {
-        name: 'viewport',
-        content: 'width=device-width, initial-scale=1',
+        name: "viewport",
+        content: "width=device-width, initial-scale=1",
       },
       {
-        title: 'Skild - The Registry for Agentic Integration Modules',
+        title: "Skild - The Registry for Agentic Integration Modules",
       },
       {
-        name: 'description',
-        content: 'Discover, publish, and operate reusable agent capabilities from a route-driven workspace.',
+        name: "description",
+        content:
+          "Discover, publish, and operate reusable agent capabilities from a route-driven workspace.",
       },
     ],
     links: [
       {
-        rel: 'stylesheet',
+        rel: "stylesheet",
         href: appCss,
       },
     ],
   }),
   shellComponent: RootDocument,
-})
+});
 
 function RootDocument({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <head>
         <HeadContent />
       </head>
-      <body className='font-sans antialiased wrap-anywhere'>
+      <body className="font-sans antialiased wrap-anywhere">
         <ClerkProvider>
           <div id="root-layout">
             <header>
@@ -65,19 +62,17 @@ function RootDocument({ children }: { children: React.ReactNode }) {
               </div>
             </header>
             <main>
-              <div>
-                {children}
-              </div>
+              <div>{children}</div>
             </main>
           </div>
 
           <TanStackDevtools
             config={{
-              position: 'bottom-right',
+              position: "bottom-right",
             }}
             plugins={[
               {
-                name: 'Tanstack Router',
+                name: "Tanstack Router",
                 render: <TanStackRouterDevtoolsPanel />,
               },
               TanStackQueryDevtools,
@@ -87,5 +82,5 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <Scripts />
       </body>
     </html>
-  )
+  );
 }

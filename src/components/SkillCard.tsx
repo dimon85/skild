@@ -64,7 +64,7 @@ const SkillCard = ({
               <p>{author.username}</p>
               <p>
                 {createdAt
-                  ? new Date(createdAt as string).toLocaleDateString()
+                  ? new Date(createdAt as string).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" })
                   : "Unknown date"}
               </p>
             </div>

@@ -1,16 +1,37 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { createServerFn } from "@tanstack/react-start";
 import { Terminal } from "lucide-react";
 import SkillCard from "#/components/SkillCard";
-import { dummySkills } from "@/lib/dummy-skills";
+import { getSkills } from "#/dataconnect-generated";
+import { dataConnect } from "#/lib/firebase";
 
-export const Route = createFileRoute("/")({ component: App });
+const getSkillsFn = createServerFn({ method: "GET" }).handler(async () => {
+  try {
+    const { data } = await getSkills(dataConnect, {
+      searchTerm: "",
+      limit: 10,
+    });
+    console.log('data: ', data);
+
+    return data.skills;
+  } catch (error) {
+    console.error("Error fetching skills:", error);
+    return [];
+  }
+});
+export const Route = createFileRoute("/")({
+  component: App,
+  loader: () => getSkillsFn(),
+});
 
 function App() {
+  const skills = Route.useLoaderData();
+
   return (
-    <div id="home" className="p-8">
+    <div id="home">
       <section className="hero">
         <div className="copy">
-          <h1 className="title">
+          <h1>
             The Registry for <br />
             <span className="text-gradient">Agentic Integration</span>
           </h1>
@@ -42,16 +63,16 @@ function App() {
         </div>
 
         <div>
-          {dummySkills.length > 0 && (
+          {skills.length > 0 && (
             <div className="skills-grid">
-              {dummySkills.map((skill) => (
+              {skills.map((skill) => (
                 <div key={skill.id}>
                   <SkillCard key={skill.id} {...skill} />
                 </div>
               ))}
             </div>
           )}
-          {dummySkills.length === 0 && (
+          {skills.length === 0 && (
             <p>No skills found. Be the first to publish a skill!</p>
           )}
         </div>

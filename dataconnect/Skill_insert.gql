@@ -1,0 +1,17 @@
+# This is a file for you to write an un-named mutation. 
+# Only one un-named mutation is allowed per file.
+mutation {
+  skill_insert(
+    data: {
+      id: "11111111222233334444555555555556",
+      authorClerkId: "user_3CrWiSN0TXENmbPv54Nd9yFDSuz",
+      createdAt: "2026-04-30T09:20:23.321Z",
+      description: "Enables agents to search the web and retrieve relevant results using a configurable search provider.",
+      installCommand: "claude skill install web-search",
+      promptConfig: "You are a web search agent. When given a query, you will use the provided search provider to retrieve relevant results from the web. You can then use these results to answer questions, provide information, or assist with tasks. Always ensure that you are retrieving accurate and up-to-date information from the web.",
+      tags: ["search", "web", "retrieval"],
+      title: "Web Search",
+      usageExample: "Search the web for the latest news on AI advancements and summarize the key points."
+    }
+  )
+}

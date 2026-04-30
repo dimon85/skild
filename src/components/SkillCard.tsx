@@ -1,17 +1,28 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowBigUp, ArrowUpRight, Bookmark, Check, Copy, MessageSquare } from "lucide-react";
+import {
+  ArrowBigUp,
+  ArrowUpRight,
+  Bookmark,
+  Check,
+  Copy,
+  MessageSquare,
+} from "lucide-react";
 import { useState } from "react";
+import type { GetSkillsData } from "#/dataconnect-generated";
+
+type SkillCardProps = GetSkillsData["skills"][number];
 
 const SkillCard = ({
-  authorEmail,
-  category,
+  author,
   createdAt,
   description,
   installCommand,
   tags,
   title,
-}: SkillRecord) => {
+}: SkillCardProps) => {
   const [copied, setCopied] = useState(false);
+
+  const category = tags[0] ?? "General";
 
   const handleCopy = async () => {
     try {
@@ -44,10 +55,18 @@ const SkillCard = ({
       <div className="body">
         <div className="meta">
           <div className="author">
-            <img src="/logo512.png" alt="author avatar" className="avatar" />
+            <img
+              src={author.imageUrl || '/logo512.png'}
+              alt={`${author.username}'s avatar`}
+              className="avatar"
+            />
             <div className="author-copy">
-              <p>Dm</p>
-              <p>{createdAt ? new Date(createdAt as string).toLocaleDateString() : "Unknown date"}</p>
+              <p>{author.username}</p>
+              <p>
+                {createdAt
+                  ? new Date(createdAt as string).toLocaleDateString()
+                  : "Unknown date"}
+              </p>
             </div>
           </div>
 
@@ -80,13 +99,13 @@ const SkillCard = ({
         <div className="footer">
           <div className="stats">
             <button type="button" className="upvote" disabled>
-              <ArrowBigUp size={16} fill="currentColor"/>
+              <ArrowBigUp size={16} fill="currentColor" />
               <span>{tags.length}</span>
             </button>
 
             <div className="comments">
               <MessageSquare size={14} />
-              <span>{authorEmail ? 1 : 0}</span>
+              <span>{author.email ? 1 : 0}</span>
             </div>
           </div>
 
@@ -96,12 +115,17 @@ const SkillCard = ({
               <ArrowUpRight size={14} />
             </Link>
 
-            <button title="Save" type="button" className="save" aria-label={`Save ${title}`} disabled>
+            <button
+              title="Save"
+              type="button"
+              className="save"
+              aria-label={`Save ${title}`}
+              disabled
+            >
               <Bookmark size={14} />
             </button>
           </div>
         </div>
-
       </div>
     </article>
   );

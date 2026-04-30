@@ -1,0 +1,97 @@
+{
+  "id": "user_3CrWiSN0TXENmbPv54Nd9yFDSuz",
+  "object": "user",
+  "username": null,
+  "first_name": "Dmitriy",
+  "last_name": "Sh.",
+  "locale": null,
+  "image_url": "https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18zQ3JXaVFEMndYNnhBbDhYN3pGNlhtcVZRdTQifQ",
+  "has_image": true,
+  "primary_email_address_id": "idn_3CrWhu5aQ3DAchTHiNi6wzCiMHS",
+  "primary_phone_number_id": null,
+  "primary_web3_wallet_id": null,
+  "password_enabled": false,
+  "two_factor_enabled": false,
+  "totp_enabled": false,
+  "backup_code_enabled": false,
+  "email_addresses": [
+    {
+      "id": "idn_3CrWhu5aQ3DAchTHiNi6wzCiMHS",
+      "object": "email_address",
+      "email_address": "glimor800@gmail.com",
+      "reserved": false,
+      "verification": {
+        "object": "verification_from_oauth",
+        "status": "verified",
+        "strategy": "from_oauth_google",
+        "attempts": null,
+        "expire_at": null
+      },
+      "linked_to": [
+        {
+          "type": "oauth_google",
+          "id": "idn_3CrWhyIBGbye3UsjrqrUc0tYiFD"
+        }
+      ],
+      "matches_sso_connection": false,
+      "created_at": 1777144291433,
+      "updated_at": 1777144295067
+    }
+  ],
+  "phone_numbers": [],
+  "web3_wallets": [],
+  "passkeys": [],
+  "external_accounts": [
+    {
+      "object": "external_account",
+      "id": "eac_3CrWhxSUNaB4chdR5GQxYsNWDWB",
+      "provider": "oauth_google",
+      "identification_id": "idn_3CrWhyIBGbye3UsjrqrUc0tYiFD",
+      "provider_user_id": "108851951385113255735",
+      "approved_scopes": "email https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile openid profile",
+      "email_address": "glimor800@gmail.com",
+      "email_address_verified": true,
+      "first_name": "Dmitriy",
+      "last_name": "Sh.",
+      "avatar_url": "https://lh3.googleusercontent.com/a/ACg8ocLieYW1aV5SEbFB5VUWxCpjED9IhlPATvRqn8P__TjKlBu4XzU=s1000-c",
+      "image_url": "https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS9BQ2c4b2NMaWVZVzFhVjVTRWJGQjVWVVd4Q3BqRUQ5SWhsUEFUdlJxbjhQX19UaktsQnU0WHpVPXMxMDAwLWMiLCJzIjoibUJ3SWF6b1oxQTJrNVNpb25aZytKVEFYV1U0M2MwYlNvUHJSbm43YStOOCJ9",
+      "username": null,
+      "phone_number": null,
+      "public_metadata": {},
+      "label": null,
+      "created_at": 1777144291424,
+      "updated_at": 1777144291424,
+      "verification": {
+        "object": "verification_oauth",
+        "status": "verified",
+        "strategy": "oauth_google",
+        "attempts": null,
+        "expire_at": 1777144886127
+      }
+    }
+  ],
+  "saml_accounts": [],
+  "enterprise_accounts": [],
+  "password_last_updated_at": null,
+  "public_metadata": {},
+  "private_metadata": {},
+  "unsafe_metadata": {},
+  "external_id": null,
+  "last_sign_in_at": 1777144295078,
+  "banned": false,
+  "locked": false,
+  "lockout_expires_in_seconds": null,
+  "verification_attempts_remaining": 100,
+  "created_at": 1777144295048,
+  "updated_at": 1777144295105,
+  "delete_self_enabled": true,
+  "bypass_client_trust": false,
+  "create_organization_enabled": true,
+  "last_active_at": 1777233719550,
+  "mfa_enabled_at": null,
+  "mfa_disabled_at": null,
+  "legal_accepted_at": null,
+  "requires_password_reset": false,
+  "deprovisioned": false,
+  "profile_image_url": "https://images.clerk.dev/oauth_google/img_3CrWiQD2wX6xAl8X7zF6XmqVQu4"
+}
